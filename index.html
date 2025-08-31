@@ -48,6 +48,11 @@
       <header class="navbar">
         <div class="container is-size-5">
           <div class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item" href="#contributing">Contributing</a>
+              <a class="navbar-item" href="#news">News</a>
+              <a class="navbar-item" href="#contact">Contact</a>
+            </div>
             <div class="navbar-end">
               <a class="navbar-item pl-4 pr-4" href="https://arxiv.org/pdf/2502.07380">
                 <span class="icon" style="margin-right:5px;">
@@ -91,23 +96,38 @@
         <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 3rem;">
           Modern Sim2Real for Low-cost, Open-source Wheeled Robotics
         </h1>
-        <span class="author-block" style="font-size: 2rem;">
-          <a href="https://thanandnow.github.io/">Tyler Han</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/preet-shah-795a0a190/">Preet Shah</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/sidharth-rajagopal-66932a221/">Sidharth Rajagopal</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/yanda-bao/">Yanda Bao</a>&nbsp;&nbsp;
-          <a href="https://shjung13.github.io/">Sanghun Jung</a>&nbsp;&nbsp;
-          <a href="https://www.sidharthtalia.com/">Sidharth Talia</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/gabriel-guo/">Gabriel Guo</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/bryan-hao-xu/">Bryan Xu</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/bhaumik-m/">Bhaumik Mehta</a>&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/emma-romig-97201617/">Emma Romig</a>&nbsp;&nbsp;
-          <a href="https://rosarioscalise.com/">Rosario Scalise</a>&nbsp;&nbsp;
-          <a href="https://homes.cs.washington.edu/~bboots/">Byron Boots</a>&nbsp;&nbsp;
-        </span>
-        <h1 class="is-2 is-italic is-size-4-mobile" style="font-size: 2rem;">
-          In Submission
-        </h1>
+        
+        <!-- Authors Toggle Button -->
+        <div class="mt-4">
+          <button id="authors-toggle" class="button is-outlined is-white is-small">
+            <span class="icon">
+              <i class="fas fa-users"></i>
+            </span>
+            <span>Authors</span>
+          </button>
+        </div>
+        
+        <!-- Authors Section (hidden by default) -->
+        <div id="authors-section" class="mt-4" style="display: none;">
+          <div class="author-block" style="font-size: 1.6rem;">
+            <a href="https://thanandnow.github.io/">Tyler Han</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/preet-shah-795a0a190/">Preet Shah</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/sidharth-rajagopal-66932a221/">Sidharth Rajagopal</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/yanda-bao/">Yanda Bao</a>&nbsp;&nbsp;
+            <a href="https://shjung13.github.io/">Sanghun Jung</a>&nbsp;&nbsp;
+            <a href="https://www.sidharthtalia.com/">Sidharth Talia</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/gabriel-guo/">Gabriel Guo</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/bryan-hao-xu/">Bryan Xu</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/bhaumik-m/">Bhaumik Mehta</a>&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/emma-romig-97201617/">Emma Romig</a>&nbsp;&nbsp;
+            <a href="https://rosarioscalise.com/">Rosario Scalise</a>&nbsp;&nbsp;
+            <a href="https://homes.cs.washington.edu/~bboots/">Byron Boots</a>&nbsp;&nbsp;
+          </div>
+          <div class="mt-3">
+            <br>
+            <img src="./resources/uw_signature.png" alt="University of Washington" style="height: 5em; vertical-align: middle; margin-right: -0.2em; margin-top: -0.2em;">
+          </div>
+        </div>
         <div class="column has-text-centered is-hidden-tablet">
           <div class="publication-links">
             <!-- PDF Link. -->
@@ -152,42 +172,50 @@
     </div>
   </section>
 
-
-<!-- <section class="section">
-  <div class="container" style="width:80%;">
-    <img src="./resources/fig1.jpg" alt="Description of the image" style="width: 80%;">
-    <div class="columns is-vcentered">
-      <div class="column is-5">
-        <p>
-          Simulation has been crucial in recent robotics milestones but often rely on expensive and high-maintenance platforms, limiting access to broader robotics audiences. <br><br>
-
-          Introducing <b>Wheeled Lab</b>, a framework for low-cost, open-source wheeled platforms widely used in education and research. Through integration with Isaac Lab, Wheeled Lab brings
-          modern techniques in Sim2Real, such as domain randomization, sensor simulation, and end-to-end learning, to new user communities.<br><br>
-
-          By bridging the gap between advanced Sim2Real methods and affordable, available robotics, Wheeled Lab aims to democratize access to cutting-edge tools, fostering innovation and education in a broader robotics context. The entire stack is low-cost and open-source.
-        </p>
-      </div>
-      <div class="column is-7">
-        <img src="./resources/fig1.jpg" alt="Description of the image" style="width: 100%;">
+<!-- Problem Section -->
+<section class="section" style="background-color: #f8f9fa; padding: 4rem 0;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-2 has-text-centered" id="problem">Problem</h2>
+        <div class="content is-size-5">
+          <p class="has-text-centered mb-5">
+            Robot learning advancements are being developed with <strong>expensive resources</strong> and <strong>high-maintenance robots</strong>, creating barriers for broader audiences in research and education.
+          </p>
+          
+          <div class="has-text-centered mt-5">
+            <div class="box" style="background: transparent; border: 2px solid #6366f1; color: #333; margin-bottom: 3rem;">
+              <div class="content">
+                <p class="is-size-4 has-text-weight-semibold mb-4">
+                  Solution: Bridge the Gap with Wheeled Robots!
+                </p>
+                <p class="is-size-5 mb-4">
+                  <strong>Wheeled Lab</strong> integrates open-source entry-level robots with Isaac Lab, making modern robot learning more accessible.
+                </p>
+              </div>
+              <div class="container" style="width: 100%;">
+                <figure class="image">
+                  <img src="./resources/fig1.png" alt="Wheeled Lab Framework Overview" style="width: 100%; display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section> -->
-
-<section class="section">
-  <div class="container" style="width: 80%;">
-    <img src="./resources/fig1.jpg" alt="Description of the image" style="width: 70%; display: block; margin: 0 auto;">
-  </div>
 </section>
 
 <section class="section">
-  <h2 class="title is-5 has-text-centered" style="width: 80vw; max-width: 1000px; margin: 0 auto; padding: 0 0px;">
-    We developed and showcased below three state-of-the-art policies for small-scale RC cars: controlled drifting, elevation traversal, and visual navigation, each trained in simulation and deployed in the real world.
-  </h2>
+  <h2 class="title is-1" style="text-align: center;" id="drifting">Sim2Real Tasks</h2>
+    <p class="is-size-5 has-text-centered mb-4">
+      To kickstart education and research, we developed three complete Sim2Real pipelines:<br>
+      <strong>Drifting</strong>, <strong>Elevation Traversal</strong>, and <strong>Visual Navigation</strong>
+    </p>
 </section>
 <section class="section">
   <div class="container is-max-fullhd">
-  <h2 class="title is-2" style="text-align: center;">Drift Policy</h2>
+  <h2 class="title is-2" style="text-align: center;" id="drifting">Drifting</h2>
     <div class="has-text-centered mb-4">
       <div class="select is-primary" style="position: relative; width: 300px; margin: 0 auto;">
         <select id="drift-video-selector" style="width: 100%;">
@@ -241,63 +269,7 @@
 
 <section class="section" style="padding: 4rem 0;">
   <div class="container is-max-fullhd">
-    <h2 class="title is-2" style="text-align: center;">RGB Policy</h2>
-    <div class="has-text-centered mb-4">
-      <div class="select is-primary" style="position: relative; width: 300px; margin: 0 auto;">
-        <select id="rgb-video-selector" style="width: 100%;">
-          <optgroup label="Policy Examples">
-            <option value="rgb_moving_barricade">Policy with moving barricade</option>
-            <option value="rgb_no_moving_barricade">Policy without moving barricade</option>
-            <option value="rgb_no_mocap">Policy with no mocap</option>
-          </optgroup>
-          <optgroup label="Baseline Examples">
-            <option value="rgb_baseline">Baseline</option>
-          </optgroup>
-        </select>
-        <div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></div>
-      </div>
-      <p class="help mt-1">Select video</p>
-    </div>
-
-    <div class="columns is-vcentered">
-      <!-- Left Column for Selected Video -->
-      <div class="column is-half">
-        <div id="video-container" class="has-text-centered">
-          <figure id="figure-rgb_moving_barricade" class="video-figure">
-            <video id="rgb_moving_barricade" controls autoplay loop muted playsinline src="./resources/rgb/mlp_aug_barricade.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
-            <figcaption class="has-text-centered mt-2">Policy with moving barricade</figcaption>
-          </figure>
-          <figure id="figure-rgb_no_moving_barricade" class="video-figure" style="display: none;">
-            <video id="rgb_no_moving_barricade" controls autoplay loop muted playsinline src="./resources/rgb/mlp_aug_test.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
-            <figcaption class="has-text-centered mt-2">Policy without moving barricade</figcaption>
-          </figure>
-          <figure id="figure-rgb_no_mocap" class="video-figure" style="display: none;">
-            <video id="rgb_no_mocap" controls autoplay loop muted playsinline src="./resources/rgb/2245.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
-            <figcaption class="has-text-centered mt-2">Policy with no mocap</figcaption>
-          </figure>
-          <figure id="figure-rgb_baseline" class="video-figure" style="display: none;">
-            <video id="rgb_baseline" controls autoplay loop muted playsinline src="./resources/rgb/CNN_No_Aug_baseline.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
-            <figcaption class="has-text-centered mt-2">Baseline</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- Right Column for Simulation Video -->
-      <div class="column is-half">
-        <div class="has-text-centered">
-          <figure id="figure-rgb_sim">
-            <video id="rgb_sim" controls autoplay loop muted playsinline src="./resources/rgb/rgb_sim_2.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
-            <figcaption class="has-text-centered mt-2">Training in Isaac Lab Simulation</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding: 4rem 0;">
-  <div class="container is-max-fullhd">
-    <h2 class="title is-2" style="text-align: center;">Elevation Policy</h2>
+    <h2 class="title is-2" style="text-align: center;" id="elevation">Elevation Traversal</h2>
       <div class="has-text-centered mb-4">
         <div class="select is-primary" style="position: relative; width: 300px; margin: 0 auto;">
           <select id="elevation-video-selector" style="width: 100%;">
@@ -380,6 +352,257 @@
   </div>
 </section>
 
+<section class="section" style="padding: 4rem 0;">
+  <div class="container is-max-fullhd">
+    <h2 class="title is-2" style="text-align: center;" id="visual-navigation">Visual Navigation</h2>
+    <div class="has-text-centered mb-4">
+      <div class="select is-primary" style="position: relative; width: 300px; margin: 0 auto;">
+        <select id="rgb-video-selector" style="width: 100%;">
+          <optgroup label="Policy Examples">
+            <option value="rgb_moving_barricade">Policy with moving barricade</option>
+            <option value="rgb_no_moving_barricade">Policy without moving barricade</option>
+            <option value="rgb_no_mocap">Policy with no mocap</option>
+          </optgroup>
+          <optgroup label="Baseline Examples">
+            <option value="rgb_baseline">Baseline</option>
+          </optgroup>
+        </select>
+        <div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></div>
+      </div>
+      <p class="help mt-1">Select video</p>
+    </div>
+
+    <div class="columns is-vcentered">
+      <!-- Left Column for Selected Video -->
+      <div class="column is-half">
+        <div id="video-container" class="has-text-centered">
+          <figure id="figure-rgb_moving_barricade" class="video-figure">
+            <video id="rgb_moving_barricade" controls autoplay loop muted playsinline src="./resources/rgb/mlp_aug_barricade.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
+            <figcaption class="has-text-centered mt-2">Policy with moving barricade</figcaption>
+          </figure>
+          <figure id="figure-rgb_no_moving_barricade" class="video-figure" style="display: none;">
+            <video id="rgb_no_moving_barricade" controls autoplay loop muted playsinline src="./resources/rgb/mlp_aug_test.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
+            <figcaption class="has-text-centered mt-2">Policy without moving barricade</figcaption>
+          </figure>
+          <figure id="figure-rgb_no_mocap" class="video-figure" style="display: none;">
+            <video id="rgb_no_mocap" controls autoplay loop muted playsinline src="./resources/rgb/2245.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
+            <figcaption class="has-text-centered mt-2">Policy with no mocap</figcaption>
+          </figure>
+          <figure id="figure-rgb_baseline" class="video-figure" style="display: none;">
+            <video id="rgb_baseline" controls autoplay loop muted playsinline src="./resources/rgb/CNN_No_Aug_baseline.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
+            <figcaption class="has-text-centered mt-2">Baseline</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Right Column for Simulation Video -->
+      <div class="column is-half">
+        <div class="has-text-centered">
+          <figure id="figure-rgb_sim">
+            <video id="rgb_sim" controls autoplay loop muted playsinline src="./resources/rgb/rgb_sim_2.mp4" poster="./resources/loading-icon.gif" style="width: 100%; border: 1px solid #bbb; border-radius: 10px;"></video>
+            <figcaption class="has-text-centered mt-2">Training in Isaac Lab Simulation</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contributing Section -->
+<section class="section" style="background-color: #f8f9fa;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-2 has-text-centered" id="contributing">Contributing</h2>
+        <div class="content">
+          <p class="has-text-centered is-size-5">
+            Wheeled Lab's mission is to enable broader audiences to learn about and engage with indispensible modern robotics skills involving hardware, deployment, and iterative development.
+            <br>
+            We need everyone's help to achieve this mission!
+          </p>
+          
+          <div class="columns">
+            <div class="column">
+              <h3 class="title is-4">How to Contribute</h3>
+              <ul>
+                <li><strong>Bug Reports:</strong> Found an issue? Please report it on our <a href="https://github.com/UWRobotLearning/WheeledLab/issues">GitHub Issues</a> page.</li>
+                <li><strong>Feature Requests:</strong> Have an idea for a new feature? We'd love to hear about it!</li>
+                <li><strong>Code Contributions:</strong> Submit pull requests for bug fixes, new features, or improvements.</li>
+                <li><strong>Documentation:</strong> Help improve our documentation, tutorials, and examples.</li>
+                <li><strong>Hardware Adaptations:</strong> Adapt Wheeled Lab for new robot platforms and share your configurations.</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h3 class="title is-4">Getting Started</h3>
+              <ol>
+                <li>Fork the repository on <a href="https://github.com/UWRobotLearning/WheeledLab">GitHub</a></li>
+                <li>Clone your fork locally</li>
+                <li>Create a new branch for your feature</li>
+                <li>Make your changes and test them</li>
+                <li>Submit a pull request</li>
+              </ol>
+              <p>
+                Check out our <a href="https://github.com/UWRobotLearning/WheeledLab/blob/main/CONTRIBUTING.md">Contributing Guidelines</a> for detailed instructions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News and Media Section -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-2 has-text-centered" id="news">News & Media</h2>
+        <div class="content">
+          <div class="columns">
+            <div class="column">
+              <h3 class="title is-4">Latest News</h3>
+              <div class="box">
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>August 8, 2025:</strong> "Wheeled Lab: Modern Sim2Real for Low-Cost, Open-Source Robotics Wheeled Robotics" is accepted to the Conference on Robot Learning, 2025. See you in Seoul!
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>April 13, 2025:</strong> <a href="https://www.youtube.com/@LycheeAI">LycheeAI</a> hosts <a href="https://thanandnow.github.io/">Tyler</a> on YouTube and gets questions about Wheeled Lab from the community answered.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>April 12, 2025:</strong> Wheeled Lab is featured in NVIDIA's blog!
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>February 11, 2025:</strong> Wheeled Lab is released! 
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-4">Media Coverage</h3>
+              <div class="content">
+                <p>Featured in:</p>
+                <ul>
+                  <li><a href="https://blogs.nvidia.com/blog/national-robotics-week-2025/">NVIDIA - "National Robotics Week — Latest Physical AI Research, Breakthroughs and Resources"</a> </li>
+                  <li>
+                    <a href="https://www.youtube.com/watch?v=Y4b-cz2xB1w">LycheeAI - "From Simulation to Reality: Building Wheeled Robots with Isaac Lab"</a>
+                    <div class="has-text-centered mt-3">
+                      <iframe width="300" height="169" src="https://www.youtube.com/embed/Y4b-cz2xB1w?si=hS5_i6QpyL9W8ZVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></iframe>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" style="background-color: #f8f9fa;">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-2 has-text-centered" id="contact">Contact & Inquiries</h2>
+        <div class="content">
+          <div class="columns">
+            <div class="column">
+              <h3 class="title is-4">Get in Touch</h3>
+              <p class="is-size-5">
+                Have questions about Wheeled Lab? Want to collaborate? We'd love to hear from you!
+              </p>
+              
+              <div class="box">
+                <h4 class="title is-5">Research Inquiries</h4>
+                <p>
+                  For research collaborations and academic questions, please contact:
+                </p>
+                <p>
+                  <strong>Tyler Han</strong><br>
+                  Lead Author<br>
+                  <a href="mailto:than123@uw.edu">than123@uw.edu</a><br>
+                  <a href="https://thanandnow.github.io/">Personal Website</a>
+                </p>
+                <p>
+                  <strong>Jason Zhou</strong><br>
+                  Maintainer<br>
+                  <a href="mailto:jzhou44@uw.edu">jzhou44@uw.edu</a><br>
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-4">Other Ways to Connect</h3>
+              
+              <div class="box">
+                <h4 class="title is-5">Technical Support</h4>
+                <p>
+                  For technical issues, bug reports, or implementation questions:
+                </p>
+                <ul>
+                  <li><a href="https://github.com/UWRobotLearning/WheeledLab/issues">GitHub Issues</a> - Report bugs and request features</li>
+                  <li><a href="https://github.com/UWRobotLearning/WheeledLab/discussions">GitHub Discussions</a> - Community Q&A</li>
+                </ul>
+              </div>
+
+              <!-- <div class="box">
+                <h4 class="title is-5">Follow Us</h4>
+                <div class="buttons">
+                  <a class="button is-primary" href="https://github.com/UWRobotLearning">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>GitHub</span>
+                  </a>
+                  <a class="button is-info" href="https://twitter.com/uwrobotics">
+                    <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>Twitter</span>
+                  </a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          
+          <div class="has-text-centered mt-5">
+            <p class="is-size-6">
+              <strong>University of Washington</strong><br>
+              Paul G. Allen School of Computer Science & Engineering<br>
+              Seattle, WA 98195
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- <section class="section" id="BibTeX">
   <div class="container content">
     <h2 class="titile">BibTeX</h2>
@@ -423,5 +646,133 @@
   </div>
 </footer>
 <script src="./static/js/video.js"></script>
+<script>
+  // Authors toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const authorsToggle = document.getElementById('authors-toggle');
+    const authorsSection = document.getElementById('authors-section');
+    const toggleIcon = authorsToggle.querySelector('i');
+    const toggleText = authorsToggle.querySelector('span:last-child');
+    
+    authorsToggle.addEventListener('click', function() {
+      if (authorsSection.style.display === 'none' || authorsSection.style.display === '') {
+        // Show authors
+        authorsSection.style.display = 'block';
+        authorsSection.style.animation = 'fadeIn 0.3s ease-in-out';
+        toggleIcon.className = 'fas fa-users';
+        toggleText.textContent = 'Hide Authors';
+        authorsToggle.classList.remove('is-outlined');
+        authorsToggle.classList.add('is-white');
+      } else {
+        // Hide authors
+        authorsSection.style.animation = 'fadeOut 0.3s ease-in-out';
+        setTimeout(() => {
+          authorsSection.style.display = 'none';
+        }, 300);
+        toggleIcon.className = 'fas fa-users';
+        toggleText.textContent = 'Authors';
+        authorsToggle.classList.add('is-outlined');
+        authorsToggle.classList.remove('is-white');
+      }
+    });
+  });
+  
+  // Navbar background change on scroll
+  window.addEventListener('scroll', function() {
+    const heroSection = document.querySelector('.hero');
+    const navbar = document.querySelector('.hero-head');
+    
+    if (heroSection && navbar) {
+      const heroHeight = heroSection.offsetHeight;
+      const scrollPosition = window.scrollY;
+      
+      // Add scrolled class when scrolled past 80% of hero section height
+      if (scrollPosition > heroHeight * 0.8) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  });
+</script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fixed navbar styling */
+  .hero-head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hero-head.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Remove body padding since navbar is always visible */
+  body {
+    padding-top: 0;
+  }
+  
+  /* Ensure navbar items are visible */
+  .navbar {
+    background-color: transparent;
+  }
+  
+  .navbar-item {
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 0 2px;
+    color: white;
+  }
+  
+  .navbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+  
+  #authors-toggle {
+    transition: all 0.3s ease;
+  }
+  
+  #authors-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .author-block a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s ease;
+  }
+  
+  .author-block a:hover {
+    border-bottom: 1px solid white;
+  }
+</style>
 </body>
 </html>
