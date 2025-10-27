@@ -150,18 +150,13 @@ class MPPI(torch.nn.Module):
             controls = self.sampling.sample(prev_controls=self._opt_controls, iter=iter, state=x0) # [num_envs, K, T, nu]
             self._next_sampled_controls[:] = controls[:, :, 0, :] # [num_envs, T, nu]
             self._rollouts[:] = self.dynamics(x0, controls) # x0: [num_envs, x_dim], controls: [num_envs, K, T, nu]
-            # self._cost_values[:] = self.costs(self._rollouts)  # [num_envs, K, T]
             self._cost_values[:] = self.costs(rollouts=self._rollouts, actions=controls)  # [num_envs, K, T]
 
         # Weight computation
         _not_env_dims = list(range(1, self._cost_values.ndim))
-        # beta = torch.amin(self._cost_values, dim=_not_env_dims, keepdim=True) # [num_envs, 1, 1]
-        # traj_cost_non_zero =  torch.sum(torch.exp(-(1. / self.temperature) * (self._cost_values - beta)),
-        #                                  dim=-1, keepdim=True) # [num_envs, K, 1]
-        beta = torch.amax(self._cost_values, dim=_not_env_dims, keepdim=True) # [num_envs, 1, 1]
-        # beta = torch.mean(self._cost_values, dim=_not_env_dims, keepdim=True)
-        traj_cost_non_zero =  torch.sum(torch.exp((1. / self.temperature) * (self._cost_values - beta)),
-                                         dim=-1, keepdim=True) # [num_envs, k, 1]
+        beta = torch.amin(self._cost_values, dim=_not_env_dims, keepdim=True) # [num_envs, 1, 1]
+        traj_cost_non_zero =  torch.sum(torch.exp(-(1. / self.temperature) * (self._cost_values - beta)),
+                                         dim=-1, keepdim=True) # [num_envs, K, 1]
         eta = torch.sum(traj_cost_non_zero, dim=-2, keepdim=True) # [num_envs, 1, 1]
 
         # Update weights and optimal controls
