@@ -61,3 +61,19 @@ gym.register(
         "rsl_rl_cfg_entry_point": f"{f1tenth_drift_agents.__name__}.rsl_rl_ppo_cfg:F1TenthPPORunnerCfg",
     }
 )
+
+#######################################
+############ NAVIGATION ENVS ###########
+#######################################
+
+from .navigation import MappingNavEnvCfg
+import wheeledlab_tasks.navigation.config.agents.mushr as mushr_navigation_agents # TODO # make agent
+gym.register(
+    id="Isaac-MappingNavEnvRL-v0",
+    entry_point='isaaclab.envs:ManagerBasedRLEnv',
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": MappingNavEnvCfg,
+        "mppi_cfg_entry_point": f"{mushr_navigation_agents.__name__}.mppi_runner_cfg:MushrMPPIRunnerCfg", # TODO: make runner
+    }
+)
