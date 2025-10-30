@@ -12,3 +12,14 @@ This is what the simulation looks like. Notice that it's a screen-recording and 
 
 https://github.com/user-attachments/assets/38470b7e-f0a4-4546-9294-73d4e953db80
 
+If you use this in your work, please consider citing:
+
+@misc{han2025modelpredictiveadversarialimitation,
+      title={Model Predictive Adversarial Imitation Learning for Planning from Observation}, 
+      author={Tyler Han and Yanda Bao and Bhaumik Mehta and Gabriel Guo and Anubhav Vishwakarma and Emily Kang and Sanghun Jung and Rosario Scalise and Jason Zhou and Bryan Xu and Byron Boots},
+      year={2025},
+      eprint={2507.21533},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2507.21533}, 
+}
