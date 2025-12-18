@@ -47,6 +47,9 @@ conda activate WL
 ./isaaclab.sh -i
 ```
 
+> [!NOTE]
+> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. If you are on 20.04, the newest version of NumPy is NOT compatible, and you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
+
 ## Installing WheeledLab (~5 min)
 
 ```bash
