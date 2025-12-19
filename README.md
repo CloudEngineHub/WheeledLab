@@ -98,6 +98,7 @@ cd isaacsim
 ./isaac-sim.sh
 ```
 If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
+
 4. Run `source setup_conda_env.sh` in the isaacsim directory. 
 
 > [!NOTE]
