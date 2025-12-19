@@ -44,8 +44,19 @@ pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvid
 ### Install Isaac Lab
 
 ```bash
-# Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
+# Clone Isaac Lab v2.0.2
 git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
+```
+
+Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
+
+```bash
+ln -s PATH_TO_ISAAC_SIM_DIRECTORY _isaac_sim
+```
+
+Finally, install Isaac Lab extensions by running the following:
+
+```bash
 ./isaaclab.sh -i
 ```
 
