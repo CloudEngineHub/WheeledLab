@@ -51,9 +51,6 @@ git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
 
 Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html
 
-> [!WARNING]
-> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. If you are on 20.04, the newest version of NumPy is NOT compatible, and you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
-
 ## Installing IsaacLab (Ubuntu 20.04)
 
 ### Setup Conda Environment
@@ -90,7 +87,12 @@ cd isaacsim
 # If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
 ```
 
-4. Run `source setup_conda_env.sh` in the isaacsim directory. 
+4. Run `source setup_conda_env.sh` in the isaacsim directory. Example:
+
+```bash
+cd isaacsim
+source setup_conda_env.sh
+```
 
 > [!NOTE]
 > You **MUST** run `source setup_conda_env.sh` every time you start a new session. 
@@ -105,7 +107,7 @@ git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
 Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
 
 ```bash
-ln -s PATH_TO_ISAAC_SIM_DIRECTORY _isaac_sim
+ln -s ~/PATH/TO/ISAAC/SIM/DIRECTORY _isaac_sim
 ```
 
 Finally, install Isaac Lab extensions by running the following:
