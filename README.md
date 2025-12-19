@@ -13,42 +13,97 @@ Environments, assets, workflow for open-source mobile robotics, integrated with 
 
 [Website](https://uwrobotlearning.github.io/WheeledLab/) | [Paper](https://arxiv.org/abs/2502.07380)
 
-## Installing IsaacLab (~20 min)
+## Installing IsaacLab (Ubuntu 22.04+/Windows) (~20 min)
 
-Note: Only use this pip installation approach if you're on Ubuntu 22.04+ or Windows. For Ubuntu 20.04, install from the binaries. [link](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html)
+> [!NOTE] 
+> If you are on Ubuntu 20.04, please see the [corresponding installation instructions](#installing-isaaclab-ubuntu-2004).
 
 WheeledLab is built atop Isaac Lab. If you do not yet have Isaac Lab installed, it is open-source and installation instructions for Isaac Sim v4.5.0 and Isaac Lab v2.0.2 can be found below:
 
+### Setup Conda Environment
+
+While this isn't technically necessary, we highly recommend using conda to keep dependancies and packages organized. 
+
+Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
+
 ```bash
-# Create a conda environment named WL and install Isaac Sim v4.5.0 in it:
+# Create a conda environment named WL
 conda create -n WL python=3.10
 conda activate WL
-pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121 # Or `pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu118` for CUDA 11
+```
+
+### Install Isaac Sim
+
+We'll be installing Isaac Sim v4.5.0 here because WheeledLab was developed with 4.5.0. With that said, WheeledLab should still work with v5.1.0. 
+
+```bash
 pip install --upgrade pip
 pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com
+```
 
+### Install Isaac Lab
+
+```bash
 # Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
 git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
 ./isaaclab.sh -i
 ```
 
-Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html
+Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html
 
-If you already have IsaacLab you can skip this and instead head [here](#create-new-isaaclab-conda-environment) to set up a new conda environment for this repository.
+> [!WARNING]
+> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. If you are on 20.04, the newest version of NumPy is NOT compatible, and you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
 
-### Create New IsaacLab Conda Environment
+## Installing IsaacLab (Ubuntu 20.04)
 
-We recommend setting up a new [conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html) environment to include both `IsaacLab` packages and `WheeledLab` packages. You can do this using Isaac Lab's convenient setup scripts:
+### Setup Conda Environment
+
+Again, while this isn't technically necessary, we highly recommend using conda to keep dependancies and packages organized. 
+
+Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
 ```bash
-cd <IsaacLab>
-./isaaclab.sh --conda WL
+# Create a conda environment named WL
+conda create -n WL python=3.10
 conda activate WL
+```
+
+### Install Isaac Sim
+
+1. Download Isaac Sim from the [Isaac Sim website](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/download.html). You can also do this in terminal by running: 
+
+```bash
+wget https://download.isaacsim.omniverse.nvidia.com/isaac-sim-standalone-4.5.0-linux-x86_64.zip
+```
+2. Unzip the binaries. In this example, we'll be unzipping the contents to the folder `isaacsim`.
+
+```bash
+unzip isaac-sim-standalone-4.5.0-linux-x86_64.zip -d isaacsim
+```
+3. Let's make sure Isaac Sim was installed correctly. Go into the `isaacsim` and run `./isaac-sim.sh`. 
+
+```bash
+cd isaacsim
+./isaac-sim.sh
+```
+If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
+4. Run `source setup_conda_env.sh` in the isaacsim directory. 
+
+> [!NOTE]
+> You **MUST** run `source setup_conda_env.sh` every time you start a new session. 
+
+### Install Isaac Lab
+
+```bash
+# Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
+git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
 ./isaaclab.sh -i
 ```
 
-> [!NOTE]
-> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. If you are on 20.04, the newest version of NumPy is NOT compatible, and you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
+> [!WARNING]
+> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. The newest version of NumPy is NOT compatible, so you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
+
+Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html
 
 ## Installing WheeledLab (~5 min)
 
