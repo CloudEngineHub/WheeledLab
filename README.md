@@ -44,19 +44,8 @@ pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvid
 ### Install Isaac Lab
 
 ```bash
-# Clone Isaac Lab v2.0.2
+# Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
 git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
-```
-
-Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
-
-```bash
-ln -s PATH_TO_ISAAC_SIM_DIRECTORY _isaac_sim
-```
-
-Finally, install Isaac Lab extensions by running the following:
-
-```bash
 ./isaaclab.sh -i
 ```
 
@@ -89,6 +78,7 @@ wget https://download.isaacsim.omniverse.nvidia.com/isaac-sim-standalone-4.5.0-l
 2. Unzip the binaries. In this example, we'll be unzipping the contents to the folder `isaacsim`.
 
 ```bash
+# Generally speaking, you want to run "unzip ZIPPED_FOLDER.zip -d DESTINATION_FOLDER"
 unzip isaac-sim-standalone-4.5.0-linux-x86_64.zip -d isaacsim
 ```
 3. Let's make sure Isaac Sim was installed correctly. Go into the `isaacsim` and run `./isaac-sim.sh`. 
@@ -96,8 +86,9 @@ unzip isaac-sim-standalone-4.5.0-linux-x86_64.zip -d isaacsim
 ```bash
 cd isaacsim
 ./isaac-sim.sh
+
+# If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
 ```
-If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
 
 4. Run `source setup_conda_env.sh` in the isaacsim directory. 
 
@@ -107,8 +98,19 @@ If you see something like "Isaac Sim Full App is loaded", you should be good to 
 ### Install Isaac Lab
 
 ```bash
-# Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
+# Clone Isaac Lab v2.0.2
 git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
+```
+
+Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
+
+```bash
+ln -s PATH_TO_ISAAC_SIM_DIRECTORY _isaac_sim
+```
+
+Finally, install Isaac Lab extensions by running the following:
+
+```bash
 ./isaaclab.sh -i
 ```
 
