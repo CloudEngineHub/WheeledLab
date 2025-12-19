@@ -118,7 +118,7 @@ Finally, install Isaac Lab extensions by running the following:
 ```
 
 > [!WARNING]
-> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. The newest version of NumPy is NOT compatible, so you MUST install NumPy v1.x. You can do so by running `pip install --force-reinstall "numpy<2"`. 
+> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. **The newest version of NumPy is NOT compatible, so you MUST install NumPy v1.x**. You can do so by running `pip install --force-reinstall "numpy<2"`. 
 
 Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html
 
