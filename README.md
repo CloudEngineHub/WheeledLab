@@ -107,6 +107,7 @@ git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
 Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
 
 ```bash
+cd Isaaclab
 ln -s ~/PATH/TO/ISAAC/SIM/DIRECTORY _isaac_sim
 ```
 
@@ -162,6 +163,9 @@ python source/wheeledlab_rl/scripts/train_rl.py --headless -r RSS_VISUAL_CONFIG
 Though optional (and free), we strongly advise using [Weights & Biases](https://wandb.ai/site/) (`wandb`) to record and track training status. Logging to `wandb` is turned on by default. If you would like to disable it, add `train.log.no_wandb=True` to the CLI arguments.
 
 See more details about training in the `wheeledlab_rl` [README.md](source/wheeledlab_rl/docs/README.md)
+
+> [!TIP]
+> If you encounter an error such as `ModuleNotFoundError: No module named 'isaacsim'`, navigate to the Isaac Sim directory and run `source setup_conda_env.sh`. This script must be executed before starting any training run in Wheeled Lab to ensure the environment is set up correctly.
 
 ## Deployment
 
