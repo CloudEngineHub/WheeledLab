@@ -13,114 +13,115 @@ Environments, assets, workflow for open-source mobile robotics, integrated with 
 
 [Website](https://uwrobotlearning.github.io/WheeledLab/) | [Paper](https://arxiv.org/abs/2502.07380)
 
-## Installing IsaacLab (Ubuntu 22.04+/Windows) (~20 min)
+## Installing IsaacLab (~20 min)
 
-> [!NOTE] 
-> If you are on Ubuntu 20.04, please see the [corresponding installation instructions](#installing-isaaclab-ubuntu-2004).
+If you already have Isaac Lab installed, feel free to move directly to installing Wheeled Lab. Though, we recommend at least creating a new Conda environment for Isaac Lab + Wheeled Lab development.
 
-WheeledLab is built atop Isaac Lab. If you do not yet have Isaac Lab installed, it is open-source and installation instructions for Isaac Sim v4.5.0 and Isaac Lab v2.0.2 can be found below:
+<details>
+  <summary><b>Ubuntu 22.04</b></summary>
+  
+  ### Setup Conda Environment
 
-### Setup Conda Environment
+  While this isn't technically necessary, we highly recommend using conda to keep dependencies and packages organized. 
 
-While this isn't technically necessary, we highly recommend using conda to keep dependancies and packages organized. 
+  Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
-Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
+  ```bash
+  # Create a conda environment named WL
+  conda create -n WL python=3.10
+  conda activate WL
+  ```
 
-```bash
-# Create a conda environment named WL
-conda create -n WL python=3.10
-conda activate WL
-```
+  ### Install Isaac Sim
 
-### Install Isaac Sim
+  We'll be installing Isaac Sim v4.5.0 here because WheeledLab was developed with 4.5.0 (WheeledLab should still work with v5.1.0).
 
-We'll be installing Isaac Sim v4.5.0 here because WheeledLab was developed with 4.5.0. With that said, WheeledLab should still work with v5.1.0. 
+  ```bash
+  pip install --upgrade pip
+  pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com
+  ```
 
-```bash
-pip install --upgrade pip
-pip install 'isaacsim[all,extscache]==4.5.0' --extra-index-url https://pypi.nvidia.com
-```
+  ### Install Isaac Lab
 
-### Install Isaac Lab
+  ```bash
+  # Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
+  git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
+  ./isaaclab.sh -i
+  ```
 
-```bash
-# Install Isaac Lab v2.0.2 (make sure you have build dependencies first, e.g. `sudo apt install cmake build-essential` on ubuntu)
-git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
-./isaaclab.sh -i
-```
+  Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html
+</details>
 
-Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html
+<details>
+  <summary><b>Ubuntu 20.04</b></summary>
+  
+  ### Setup Conda Environment
 
-## Installing IsaacLab (Ubuntu 20.04)
+  Again, while this isn't technically necessary, we highly recommend using conda to keep dependencies and packages organized. 
 
-### Setup Conda Environment
+  Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
-Again, while this isn't technically necessary, we highly recommend using conda to keep dependancies and packages organized. 
+  ```bash
+  # Create a conda environment named WL
+  conda create -n WL python=3.10
+  conda activate WL
+  ```
 
-Conda can be installed [here](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
+  ### Install Isaac Sim
 
-```bash
-# Create a conda environment named WL
-conda create -n WL python=3.10
-conda activate WL
-```
+  1. Download Isaac Sim from the [Isaac Sim website](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/download.html). You can also do this in terminal by running: 
 
-### Install Isaac Sim
+  ```bash
+  wget https://download.isaacsim.omniverse.nvidia.com/isaac-sim-standalone-4.5.0-linux-x86_64.zip
+  ```
+  2. Unzip the binaries. In this example, we'll be unzipping the contents to the folder `isaacsim`.
 
-1. Download Isaac Sim from the [Isaac Sim website](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/download.html). You can also do this in terminal by running: 
+  ```bash
+  # Generally speaking, you want to run "unzip ZIPPED_FOLDER.zip -d DESTINATION_FOLDER"
+  unzip isaac-sim-standalone-4.5.0-linux-x86_64.zip -d isaacsim
+  ```
+  3. Let's make sure Isaac Sim was installed correctly. Go into the `isaacsim` and run `./isaac-sim.sh`. 
 
-```bash
-wget https://download.isaacsim.omniverse.nvidia.com/isaac-sim-standalone-4.5.0-linux-x86_64.zip
-```
-2. Unzip the binaries. In this example, we'll be unzipping the contents to the folder `isaacsim`.
+  ```bash
+  cd isaacsim
+  ./isaac-sim.sh
 
-```bash
-# Generally speaking, you want to run "unzip ZIPPED_FOLDER.zip -d DESTINATION_FOLDER"
-unzip isaac-sim-standalone-4.5.0-linux-x86_64.zip -d isaacsim
-```
-3. Let's make sure Isaac Sim was installed correctly. Go into the `isaacsim` and run `./isaac-sim.sh`. 
+  # If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
+  ```
 
-```bash
-cd isaacsim
-./isaac-sim.sh
+  4. Run `source setup_conda_env.sh` in the isaacsim directory. Example:
 
-# If you see something like "Isaac Sim Full App is loaded", you should be good to go. 
-```
+  ```bash
+  cd isaacsim
+  source setup_conda_env.sh
+  ```
 
-4. Run `source setup_conda_env.sh` in the isaacsim directory. Example:
+  <mark>Note! You **MUST** run `source setup_conda_env.sh` every time you start a new session.</mark>
 
-```bash
-cd isaacsim
-source setup_conda_env.sh
-```
+  ### Install Isaac Lab
 
-> [!NOTE]
-> You **MUST** run `source setup_conda_env.sh` every time you start a new session. 
+  ```bash
+  # Clone Isaac Lab v2.0.2
+  git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
+  ```
 
-### Install Isaac Lab
+  Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
 
-```bash
-# Clone Isaac Lab v2.0.2
-git clone --branch v2.0.2 https://github.com/isaac-sim/IsaacLab.git
-```
+  ```bash
+  cd Isaaclab
+  ln -s ~/PATH/TO/ISAAC/SIM/DIRECTORY _isaac_sim
+  ```
 
-Next, create a symbolic link between the installed Isaac Sim and the Isaac Lab directory. Do so by running the following in the Isaac Lab folder. 
+  Finally, install Isaac Lab extensions by running the following:
 
-```bash
-cd Isaaclab
-ln -s ~/PATH/TO/ISAAC/SIM/DIRECTORY _isaac_sim
-```
+  ```bash
+  ./isaaclab.sh -i
+  ```
 
-Finally, install Isaac Lab extensions by running the following:
+  <mark>Warning! The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. **The newest version of NumPy is NOT compatible, so you MUST install NumPy v1.x**. You can do so by running `pip install --force-reinstall "numpy<2"`.</mark>
 
-```bash
-./isaaclab.sh -i
-```
-
-> [!WARNING]
-> The IsaacLab install command (`./isaaclab.sh -i`) automatically installs the newest version of NumPy. **The newest version of NumPy is NOT compatible, so you MUST install NumPy v1.x**. You can do so by running `pip install --force-reinstall "numpy<2"`. 
-
-Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html
+  Source: https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html
+</details>
 
 ## Installing WheeledLab (~5 min)
 
