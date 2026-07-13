@@ -54,6 +54,8 @@ If you already have Isaac Lab installed, feel free to move directly to installin
 
 <details>
   <summary><b>Ubuntu 20.04</b></summary>
+
+  **Please see the 20.04 video guide here: https://youtu.be/8x-07OxX8aE**
   
   ### Setup Conda Environment
 
